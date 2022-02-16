@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"> </script>
+    <script src="{{ asset('js/myjs.js') }}"></script>
 </head>
 
 <body>
@@ -52,7 +53,7 @@
                             </li>
                             {{-- Crear Ususario --}}
                             <li class="nav-item ">
-                                <a href="{{ route('create-user',0) }}" class="nav-link align-middle px-0">
+                                <a href="{{ route('user.create') }}" class="nav-link align-middle px-0">
                                     <i class="bi bi-person-plus-fill" style="font-size: 2rem;"></i>
                                 </a>
                             </li>
@@ -96,15 +97,10 @@
                 <!--Content area...-->
                 <div class="continer-fluid">
 
-                    @yield('profile')
-                    @yield('settings')
-                    @yield('change-password')
-                    @yield('change-name')
+                    @yield('user')
 
                     @hasrole('admin')
-                        @yield('create-user')
-                        @yield('all-users')
-                        @yield('register')
+                        @yield('admin')
                     @endhasrole
                 </div>
 

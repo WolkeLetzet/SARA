@@ -16,7 +16,7 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('save-user') }}">
+                        <form method="POST" action="{{ route('user.store') }}">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
@@ -50,10 +50,12 @@
                                     class="col-md-4 col-form-label text-md-end">Contraseña</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                         autocomplete="password">
-
+                                    <div class="input-group">
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') is-invalid @enderror" name="password"
+                                            required autocomplete="current-password">
+                                        <button class="input-group-text bg-white border-start-0" id="changeVis"><i style="font-size: 1.2rem" class="icon bi bi-eye"></i></button>
+                                    </div>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong><strong>{{ $message }}</strong></strong>
@@ -66,7 +68,7 @@
                                     class="col-md-4 col-form-label text-md-end">Confirmar Contraseña</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
+                                    <input id="password" type="password" class="form-control"
                                         name="password_confirmation"  autocomplete="">
                                 </div>
                             </div>
@@ -97,4 +99,5 @@
             </div>
         </div>
     </div>
+
 @endsection

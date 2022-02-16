@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
-@section('settings')
+@section('admin')
 
     <div class="container">
 
@@ -22,7 +22,7 @@
                             <div>
                                 <tbody>
                                     @if (auth()->user()->hasRole('admin') && $users)
-                                        <form id="roleForm" action="{{ route('set-roles') }}" method="post">
+                                        <form id="roleForm" action="{{ route('admin.roles.update') }}" method="post">
                                             @php
                                                 $i = 0;
                                             @endphp

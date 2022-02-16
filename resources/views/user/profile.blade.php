@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 
 
-@section('profile')
+@section('user')
  
 
 

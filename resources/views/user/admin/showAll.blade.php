@@ -14,7 +14,7 @@
                         @endif
                     </div>
                     <div class="col-1">
-                        <a id="edit-roles" href="{{ route('setting-roles') }}">
+                        <a id="edit-roles" href="{{ route('admin.roles.edit') }}">
                             <i class="bi bi-gear-fill"></i>
                         </a>
                     </div>

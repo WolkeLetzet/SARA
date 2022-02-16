@@ -68,6 +68,6 @@ class ProfileController extends Controller
         $user=Auth::user();
         $user->name=$req->nombre;
         $user->save();
-        return redirect(route('user-profile'));
+        return redirect(route('user.profile'));
     }
 }

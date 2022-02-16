@@ -21,7 +21,7 @@ class AdminController extends Controller
     {
         $faker = Container::getInstance()->make(Generator::class);
 
-        return view('user.admin.new-user')->with('roles', Role::all('id', 'name'))->with('example', $faker);
+        return view('user.admin.create')->with('roles', Role::all('id', 'name'))->with('example', $faker);
     }
 
     public function storeUsuario(Request $req)
@@ -48,13 +48,13 @@ class AdminController extends Controller
         }
     }
 
-    public function changeRoles()
+    public function editRoles()
     {
-        return view('user.admin.setting')->with('users', User::all())
+        return view('user.admin.roles.edit')->with('users', User::all())
             ->with('roles', Role::get('name'));
     }
 
-    public function setRoles(Request $req)
+    public function updateRoles(Request $req)
     {
         $roles = $req->roles;
         $users = User::all();
@@ -67,7 +67,7 @@ class AdminController extends Controller
                 $user->syncRoles([]);
             }
         }
-        return redirect(route('all-user'))->with('success', 'Cambios Hechos con Exito');
+        return redirect(route('admin.show.all'))->with('success', 'Cambios Hechos con Exito');
     }
     public function userRegValidator($data)
     {

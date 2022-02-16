@@ -21,8 +21,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/home', function () {
+    return redirect(route('index'));
+});
 Route::namespace('App\Http\Controllers')->middleware('auth')->group(function (){
 
     Route::resource('index', 'ComputadorController');
@@ -46,15 +47,10 @@ Route::namespace('App\Http\Controllers')->middleware('auth')->group(function (){
     Route::get('user/password/change','ProfileController@showChangePassword')->name('user.show.pasword.change');
 
     Route::get('user/admin/show/all', 'AdminController@showAllUsers')->name('admin.show.all');
-    
-
+    Route::get('user/admin/create','AdminController@crearUsuario')->name('user.create');
+    Route::post('user/admin/strore','AdminController@storeUsuario')->name('user.store');
+    Route::get('user/admin/roles','AdminController@editRoles')->name('admin.roles.edit');
+    Route::post('user/admin/roles/save','AdminController@updateRoles')->name('admin.roles.update');
+    Route::post('user/admin/store','AdminController@storeUsuario')->name('user.store');
     
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
