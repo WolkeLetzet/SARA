@@ -80,9 +80,11 @@
             
         </tbody>
     </table>
-    <div class="row">
-        {{$computers->links('pagination::bootstrap-5')}}
-    </div>
+   <div>
+       {{$computers->links()}}
+   </div>
+        
+    
     
 
 @endsection

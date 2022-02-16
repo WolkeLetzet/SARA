@@ -78,9 +78,15 @@
 
     <div class="container-fluid">
         @yield('public')
-        @yield('user')
-        
+        @auth
+            @yield('user')
+            @hasrole('admin')
             @yield('admin')
+            @endhasrole
+        @endauth
+        
+        
+            
         
         
     </div>

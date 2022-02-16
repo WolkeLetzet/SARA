@@ -55,5 +55,11 @@ Route::namespace('App\Http\Controllers')->middleware('auth')->group(function (){
     Route::post('user/admin/store','AdminController@storeUsuario')->name('user.store');
     Route::get('user/admin/control/delete','AdminController@showUserDelete')->name('user.admin.delete');
     Route::post('user/admin/control/delete','AdminController@userDelete')->name('user.admin.delete');
+
     
+});
+
+
+Route::fallback(function () {
+    return redirect(route('index'));
 });

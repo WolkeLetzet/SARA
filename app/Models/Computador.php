@@ -50,4 +50,8 @@ class Computador extends Model
             return $query->whereHas('oficina','LIKE',"%$oficina%");
         }
     }
+    public function scopeAvailable($query){
+
+        return $query->where('estado',true);
+    }
 }
