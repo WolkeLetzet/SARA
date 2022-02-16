@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"> </script>
-    <script src="{{ asset('js/myjs.js') }}"></script>
+
+
 </head>
 
 <body>
@@ -57,15 +58,19 @@
                                     <i class="bi bi-person-plus-fill" style="font-size: 2rem;"></i>
                                 </a>
                             </li>
+
+                            {{-- Eliminar Usuario --}}
+                            <li class="nav-item">
+                                <a href="{{route('user.admin.delete')}}" class="nav-link align-middle px-0">
+                                    <i  style="font-size: 2rem;" class="bi bi-person-x-fill"></i>
+                                </a>
+                            </li>
+
                         @endrole
                        
-                        {{-- Settings --}}
+                        
 
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('settings-user',auth()->user()->id) }}" class="nav-link align-middle px-0">
-                                <i class="bi bi-gear-fill" style="font-size: 2rem;"></i>
-                            </a>
-                        </li> --}}
+                        
 
 
 
@@ -130,6 +135,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
+
+   
 </body>
+    
+
 
 </html>

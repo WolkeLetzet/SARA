@@ -44,7 +44,8 @@ Route::namespace('App\Http\Controllers')->middleware('auth')->group(function (){
 
     Route::get('user/profile','ProfileController@show')->name('user.profile');
     Route::post('user/profile','ProfileController@changeUserName')->name('user.name.change');
-    Route::get('user/password/change','ProfileController@showChangePassword')->name('user.show.pasword.change');
+    Route::get('user/password/change','ProfileController@showChangePassword')->name('user.show.password.change');
+    Route::post('user/password/change','ProfileController@changeUserPassword')->name('user.password.change');
 
     Route::get('user/admin/show/all', 'AdminController@showAllUsers')->name('admin.show.all');
     Route::get('user/admin/create','AdminController@crearUsuario')->name('user.create');
@@ -52,5 +53,7 @@ Route::namespace('App\Http\Controllers')->middleware('auth')->group(function (){
     Route::get('user/admin/roles','AdminController@editRoles')->name('admin.roles.edit');
     Route::post('user/admin/roles/save','AdminController@updateRoles')->name('admin.roles.update');
     Route::post('user/admin/store','AdminController@storeUsuario')->name('user.store');
+    Route::get('user/admin/control/delete','AdminController@showUserDelete')->name('user.admin.delete');
+    Route::post('user/admin/control/delete','AdminController@userDelete')->name('user.admin.delete');
     
 });

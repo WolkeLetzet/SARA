@@ -1,7 +1,7 @@
 @extends('layouts.navbar')
 
 @section('public')
-
+<script src="{{asset('js/myjs.js')}}"></script>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -69,12 +69,6 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
-
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            Olivide mi contraseña
-                                        </a>
-                                    @endif
                                 </div>
                             </div>
                         </form>

@@ -15,9 +15,9 @@ class AdminController extends Controller
 {
     public function showAllUsers()
     {
-        return view('user.admin.showAll')->with('users', User::all());
+        return view('user.admin.showAll')->with('users', User::available()->get());
     }
-    public function crearUsuario($flag = false)
+    public function crearUsuario()
     {
         $faker = Container::getInstance()->make(Generator::class);
 
@@ -50,14 +50,14 @@ class AdminController extends Controller
 
     public function editRoles()
     {
-        return view('user.admin.roles.edit')->with('users', User::all())
+        return view('user.admin.roles.edit')->with('users', User::available()->get())
             ->with('roles', Role::get('name'));
     }
 
     public function updateRoles(Request $req)
     {
         $roles = $req->roles;
-        $users = User::all();
+        $users = User::available()->get();
 
         foreach ($users as $user) {
 
@@ -82,6 +82,22 @@ class AdminController extends Controller
             "confirmed" => "Las contraseñas no coinciden",
             "unique" => "Este :attribute ya esta en uso",
         ]);
+    }
+
+    public function showUserDelete(){
+    
+        return view('user.admin.delete')->with('users',User::available()->get());
+    }
+    public function userDelete (Request $req){
+        if($req->users){
+            foreach($req->users as $id){
+                $user=User::find($id);
+                $user->estado=false;
+                $user->save();
+            }
+        }
+
+        return redirect()->to(route('admin.show.all'));
     }
 
 }

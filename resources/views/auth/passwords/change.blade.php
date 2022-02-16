@@ -1,6 +1,6 @@
 @extends('layouts.sidebar')
 
-@section('change-password')
+@section('user')
 
     <div class="reg-container">
         <div class="row justify-content-center">
@@ -21,7 +21,7 @@
                     <div class="card-body ">
 
                         <form class="form needs-validation" id="new-password-form" method="POST"
-                            action="{{ route('') }} ">
+                            action="{{ route('user.password.change') }} ">
 
                             @csrf
 

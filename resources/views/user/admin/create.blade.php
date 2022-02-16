@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 
 @section('admin')
-
+<script src="{{asset('js/myjs.js')}}"></script>
 
     <div class="container reg-container">
         <div class="row justify-content-center">

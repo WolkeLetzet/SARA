@@ -58,7 +58,7 @@
                                             <div class="input-group col">
                                                 <input type="password" class="form-control" disabled value="**********">
                                                 <a class="btn btn-outline-secondary" value="***" type="button"
-                                                    href="{{ route('user.show.pasword.change') }}"><i
+                                                    href="{{ route('user.show.password.change') }}"><i
                                                         class="bi bi-pencil-square"></i></a>
                                             </div>
                                         </div>
