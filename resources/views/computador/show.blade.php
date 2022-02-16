@@ -1,6 +1,6 @@
 @extends('layouts.navbar')
 
-@section('show-computer')
+@section('user')
 <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/pruebas/resources/css/comentarios.css">
 
@@ -130,7 +130,7 @@
                                         <div class="col">
                                             {{ $comentario->comentario }}
                                         </div>
-                                        <form action="{{ route('destroyComentario', [$computer->id, $comentario->id]) }}"
+                                        <form action="{{ route('comentario.destroy', [$computer->id, $comentario->id]) }}"
                                             method="POST">
                                             @csrf
                                            
@@ -153,17 +153,17 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col">
-                                <a target="_blank" class="btn btn-primary" href="{{route('imprimirCompu',$computer->id)}}">Imprimir</a>
-                                <a class="btn btn-dark" href="{{ route('edit', $computer->id) }}"
+                                <a target="_blank" class="btn btn-primary" href="{{route('computador.imprimir',$computer->id)}}">Imprimir</a>
+                                <a class="btn btn-dark" href="{{ route('computador.edit', $computer->id) }}"
                                     role="button">Editar</a>
-                                <a class="btn btn-secondary" href="{{ route('addcomentario', $computer->id) }}"> Agregar Comentario </a>
+                                <a class="btn btn-secondary" href="{{ route('comentario.create', $computer->id) }}"> Agregar Comentario </a>
                                 
                             </div>
                             <div class="col-sm-1">
                                 <button form="computer-delete-form" type="submit" class="btn btn-danger">Eliminar</button>
                             </div>
                             
-                            <form id="computer-delete-form" class="col-2" action="{{ route('destroy', $computer->id) }}" onsubmit="return confirm('¿Seguro de eliminar este Computador?')"  method="post">
+                            <form id="computer-delete-form" class="col-2" action="{{ route('comentario.destroy', $computer->id) }}" onsubmit="return confirm('¿Seguro de eliminar este Computador?')"  method="post">
                                 @csrf
                             </form>
                         </div>

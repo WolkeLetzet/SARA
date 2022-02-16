@@ -39,14 +39,14 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra el Perfil del Usuraio en Sesion
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
-        //
+    
     }
 
     /**

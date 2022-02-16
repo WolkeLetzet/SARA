@@ -5,7 +5,7 @@
     <!-- Comentario para Editar -->
     <div class="container-sm">
         <div class="row" style="padding-bottom: 20px">
-            <form class="needs-validation" method="POST" action="">
+            <form action="{{ route('comentario.update', $comentario->id) }}" class="needs-validation" method="POST" action="">
                 @csrf
                 @method('PUT')
 
@@ -16,7 +16,7 @@
 
                 </div>
                 <button type="submit" href="" class="btn btn-dark">Agregar</button>
-                <a class="btn btn-light" href="{{ route('show', $comentario->computador->id) }}">Volver</a>
+                <a class="btn btn-light" href="{{ route('computador.show', $comentario->computador->id) }}">Volver</a>
 
 
 
@@ -32,7 +32,7 @@
                         <div class="col">
                             {{ $comment->comentario }}
                         </div>
-                        <a href="{{ route('editcomentario', $comment->id) }}" class="btn btn-dark col-1"><i
+                        <a href="{{ route('comentario.edit', $comment->id) }}" class="btn btn-dark col-1"><i
                                 class="bi bi-pencil-square"></i></a>
                     </div>
 

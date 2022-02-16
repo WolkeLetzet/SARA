@@ -39,7 +39,7 @@ class ComputadorController extends Controller
 
         return view('computador.index')->with('computers', $data);
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -72,11 +72,11 @@ class ComputadorController extends Controller
             'modelo' => 'required|max:255',
             'fecha' => 'required|date',
             'marca' => 'required|max:255',
-            'ram'=>'max:255',
-            'encargado'=>'max:255',
-            'so'=>'max:255',
-            'codigo_inventario'=>'max:255',
-            'almacenamiento'=>'max:255',
+            'ram' => 'max:255',
+            'encargado' => 'max:255',
+            'so' => 'max:255',
+            'codigo_inventario' => 'max:255',
+            'almacenamiento' => 'max:255',
         ], $message = [
             'required' => 'Este campo es obligatorio',
             'max' => 'Maximo de 255 caracteres'
@@ -97,23 +97,26 @@ class ComputadorController extends Controller
                 $of = new Oficina;
                 $of->nombre = $req->newOficina;
                 $of->save();
+                $computador->oficinas()->detach();
                 $computador->oficinas()->attach($of);
             }
             if ($req->newUso) {
                 $newUso = new TipoUso;
                 $newUso->nombre = $req->newUso;
                 $newUso->save();
+                $computador->tipo_usos()->detach();
                 $computador->tipo_usos()->attach($newUso);
             }
             if ($req->oficinas) {
+                $computador->oficinas()->detach();
                 foreach ($req->oficinas as $oficina_id) {
-                    # code...
                     $oficina = Oficina::find($oficina_id);
 
                     $computador->oficinas()->attach($oficina);
                 }
             }
             if ($req->tipo_usos) {
+                $computador->tipo_usos()->detach();
                 foreach ($req->tipo_usos as $usos_id) {
                     # code...
                     $tipo_uso = TipoUso::find($usos_id);
@@ -129,7 +132,7 @@ class ComputadorController extends Controller
             }
 
 
-            return redirect(route('computer.show', $computador->id));
+            return redirect(route('computador.show', $computador->id));
         } catch (Exception $e) {
             return view('error.show')->with('message', $e->getMessage());
         }
@@ -192,11 +195,11 @@ class ComputadorController extends Controller
             'modelo' => 'required|max:255',
             'fecha' => 'required|date',
             'marca' => 'required|max:255',
-            'ram'=>'max:255',
-            'encargado'=>'max:255',
-            'so'=>'max:255',
-            'codigo_inventario'=>'max:255',
-            'almacenamiento'=>'max:255',
+            'ram' => 'max:255',
+            'encargado' => 'max:255',
+            'so' => 'max:255',
+            'codigo_inventario' => 'max:255',
+            'almacenamiento' => 'max:255',
         ], $message = [
             'required' => 'Este campo es obligatorio',
             'max' => 'Maximo de 255 caracteres'
@@ -219,28 +222,33 @@ class ComputadorController extends Controller
                 $of = new Oficina;
                 $of->nombre = $req->newOficina;
                 $of->save();
+                $computador->oficinas()->detach();
                 $computador->oficinas()->attach($of);
             }
             if ($req->newUso) {
                 $newUso = new TipoUso;
                 $newUso->nombre = $req->newUso;
                 $newUso->save();
+                $computador->tipo_usos()->detach();
                 $computador->tipo_usos()->attach($newUso);
             }
             if ($req->oficinas) {
+                $computador->oficinas()->detach();
                 foreach ($req->oficinas as $oficina_id) {
                     # code...
                     $oficina = Oficina::find($oficina_id);
-
+                    
                     $computador->oficinas()->attach($oficina);
                 }
             }
 
 
             if ($req->tipo_usos) {
+                    $computador->tipo_usos()->detach();
                 foreach ($req->tipo_usos as $usos_id) {
-                    # code...
+                
                     $tipo_uso = TipoUso::find($usos_id);
+                    
                     $computador->tipo_usos()->attach($tipo_uso);
                 }
             }
@@ -272,6 +280,6 @@ class ComputadorController extends Controller
     public function imprimir($id)
     {
         $computer = Computador::find($id);
-        return PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadView('computador.print_comp', compact('computer'))->stream('invoice.pdf');
+        return PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadView('computador.print', compact('computer'))->stream('invoice.pdf');
     }
 }

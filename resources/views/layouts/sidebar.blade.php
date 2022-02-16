@@ -38,7 +38,7 @@
 
                              {{-- Perfil --}}
                              <li class="nav-item">
-                                <a href="{{ route('user-profile', auth()->user()->id) }}"
+                                <a href="{{ route('user.profile') }}"
                                     class="nav-link align-middle px-0">
                                     <i class="bi bi-person-circle" style="font-size: 2rem;"></i>
                                 </a>
@@ -46,7 +46,7 @@
                         @role('admin')
                             {{-- Ususarios --}}
                             <li class="nav-item ">
-                                <a href="{{ route('all-user') }}" class="nav-link align-middle px-0">
+                                <a href="{{ route('admin.show.all') }}" class="nav-link align-middle px-0">
                                     <i class="bi bi-people-fill" style="font-size: 2rem;"></i>
                                 </a>
                             </li>

@@ -1,6 +1,6 @@
 @extends('layouts.navbar')
 
-@section('table')
+@section('user')
 
 <div class="row align-items-center">
     <div class="col">
@@ -70,7 +70,7 @@
  
             <th>
                 
-                <a href="{{route('show',$computer->id)}}" class= "btn btn-outline-dark">Ver</a>
+                <a href="{{route('computador.show',$computer->id)}}" class= "btn btn-outline-dark">Ver</a>
             
             </th>
 
@@ -81,7 +81,7 @@
         </tbody>
     </table>
     <div class="row">
-        {{$computers->links()}}
+        {{$computers->links('pagination::bootstrap-5')}}
     </div>
     
 

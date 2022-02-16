@@ -1,6 +1,6 @@
 @extends('layouts.navbar')
 
-@section('edit-form')
+@section('user')
     <?php
     $i = 0;
     $ar = null;
@@ -19,8 +19,9 @@
     ?>
     <div class="container-sm">
 
-        <form action="" method="post">
+        <form action="{{route('computador.update',$computer->id)}}" method="post">
             @csrf
+            @method('PUT')
 
             <div class="row">
 
@@ -164,7 +165,7 @@
                     @foreach ($tipo_usos as $uso)
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="tipos_usos[]" id="uso{{ $uso->id }}"
+                            <input type="checkbox" class="form-check-input" name="tipo_usos[]" id="uso{{ $uso->id }}"
                                 value="{{ $uso->id }}" @if ($ar2)
                             @if (in_array($uso->id, $ar2))
                                 checked

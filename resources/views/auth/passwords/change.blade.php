@@ -21,7 +21,7 @@
                     <div class="card-body ">
 
                         <form class="form needs-validation" id="new-password-form" method="POST"
-                            action="{{ route('verficar-password') }} ">
+                            action="{{ route('') }} ">
 
                             @csrf
 

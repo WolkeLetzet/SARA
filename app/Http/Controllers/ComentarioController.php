@@ -39,7 +39,7 @@ class ComentarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($computer_id, Request $req)
+    public function store(Request $req,$computer_id)
     {
         $req->validate([
             'comentario' => 'max:255'
@@ -49,7 +49,7 @@ class ComentarioController extends Controller
         $comentario->comentario = $req->comentario;
         $comentario->computador()->associate($computador);
         $comentario->save();
-        return redirect(route('addcomentario', $computer_id));
+        return redirect(route('comentario.create', $computer_id));
     }
 
     /**
@@ -98,7 +98,7 @@ class ComentarioController extends Controller
         ]);
         $comentario->comentario = $req->comentario;
         $comentario->save();
-        return redirect(route('addcomentario', $comentario->computador_id));
+        return redirect(route('comentario.create', $comentario->computador_id));
     }
 
     /**
@@ -111,6 +111,6 @@ class ComentarioController extends Controller
     {
         $comentario = Comentario::find($id);
         $comentario->estado=false;
-        return redirect(route('show', $computer_id));
+        return redirect(route('computador.show', $computer_id));
     }
 }

@@ -21,7 +21,7 @@
                                 <tr>
                                     <th>Nombre</th>
                                     <td>
-                                        <form id="cambioNombre" action="{{ route('cambiar-nombre') }}" method="POST">
+                                        <form id="cambioNombre" action="{{ route('user.name.change') }}" method="POST">
                                             @csrf
                                             <div class="row">
 
@@ -58,7 +58,7 @@
                                             <div class="input-group col">
                                                 <input type="password" class="form-control" disabled value="**********">
                                                 <a class="btn btn-outline-secondary" value="***" type="button"
-                                                    href="{{ route('cambiar-contraseña') }}"><i
+                                                    href="{{ route('user.show.pasword.change') }}"><i
                                                         class="bi bi-pencil-square"></i></a>
                                             </div>
                                         </div>

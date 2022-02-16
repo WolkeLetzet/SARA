@@ -4,22 +4,17 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/comentarios.css')}}">
 
 
-    <div class="container-sm">
+    <div class="container-sm mt-5">
         <div class="row" style="padding-bottom: 20px">
-            <form action="" class="needs-validation" method="POST">
+            <form action="{{route('comentario.store',$compu_id)}}" class="needs-validation" method="POST">
                @csrf
 
                 <div class="mb-3">
                     <label for="encargado" class="form-label">Comentario nuevo</label>
-                    <textarea val class="form-control" name="comentario" id="comentario" rows="3" required></textarea>
-
+                    <textarea maxlength="255" class="form-control" name="comentario" id="comentario" rows="3" required></textarea>
                 </div>
-                <button type="submit" href="" class="btn btn-dark">Agregar</button>
-               <a class="btn btn-light" href="{{route('show',$compu_id)}}">Volver</a>
-
-
-
-
+                <button type="submit" class="btn btn-dark">Agregar</button>
+               <a class="btn btn-light" href="{{route('computador.show',$compu_id)}}">Volver</a>
             </form>
         </div>
 
@@ -30,7 +25,7 @@
                    <div class="col">
                     {{ $comentario->comentario }}
                   </div>
-                    <a href="{{route('editcomentario',$comentario->id)}}" class="btn btn-dark col-1"><i class="bi bi-pencil-square"></i></a>
+                    <a href="{{route('comentario.edit',$comentario->id)}}" class="btn btn-dark col-1"><i class="bi bi-pencil-square"></i></a>
                 </div>
                 
             </div>
