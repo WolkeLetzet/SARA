@@ -1,0 +1,38 @@
+.nav-link{
+   color: aliceblue;
+}
+.nav-item :hover{
+   color: rgba(64, 219, 247, 0.877);
+}
+
+
+.nav-item.active{
+   opacity: 1;
+   color: black;
+}
+
+i {
+   font-size: 2rem;
+}
+
+.nav-item{
+   color: aliceblue;
+}
+.reg-container{
+   margin-top: 8%;
+   justify-content: center;
+   align-items: center;
+}
+.table-container{
+   margin-top: 4%;
+   
+}
+a#edit-roles{
+   color: rgba(0, 0, 0, 0.671);
+}
+a#edit-roles:hover{
+  color: rgba(0, 0, 0);
+}
+
+
+
